@@ -5,6 +5,9 @@ ofxAdafruitPWMBonnet
 
 A openFrameworks addon for controling [Adafruit's PWM Bonnet](https://www.adafruit.com/product/3416).
 
+
+![Adafruit PWM Bonnet](https://cdn-learn.adafruit.com/assets/assets/000/052/350/medium640/adafruit_products_2327-13.jpg?1521599294)
+
 **ofxAdafruitPWMBonnet** is an addon for openFrameworks (v0.10.0+) that allows users to control multiple PWM components through Adadfruit's PWM Bonnet for Raspberry Pi.
 
 If you would like to contribute to the addon feel free to fork, hack and mod the code.
