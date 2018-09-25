@@ -100,6 +100,17 @@ void ofxAdafruitPWMBonnet::init(string name, u_int16_t i2cAddress, float pwmFreq
 }
 
 //--------------------------------------------------------
+void ofxAdafruitPWMBonnet::close()
+{
+    ofLogNotice() << "Closing I2C Connection";
+#ifdef TARGET_RASPBERRY_PI    
+    // Close the Bus
+    if(bus != nullptr)
+        delete bus;
+#endif
+}
+
+//--------------------------------------------------------
 void ofxAdafruitPWMBonnet::setPWMFrequency(float pwmFrequency)
 {
     float prescaleval = 25000000.0; //25MHz
