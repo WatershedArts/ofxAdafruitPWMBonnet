@@ -40,6 +40,8 @@ I've included both ofxImGui and ofxGui in the examples I prefer using ofxImGui a
 
 - **example-simple**: simple control of the pins using a simple gui.
 - **example-multiple-bonnets**: control multiple bonnets through the Gui.
+- **example-simple-servo**: control one servo with one bonnet.
+- **example-multiple-servos**: control multiple servos with one bonnet.
 
 ### Multiple Bonnets
 
