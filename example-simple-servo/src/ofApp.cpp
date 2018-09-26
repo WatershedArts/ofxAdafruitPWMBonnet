@@ -10,7 +10,8 @@ void ofApp::setup()
     controller = new ofxAdafruitPWMBonnet();
     controller->init("example-simple");
     
-    servo_one.init(0x40,0,glm::vec2(ofGetWidth()/2,ofGetHeight()/2),0);
+    glm::vec2 servoSize(50,100);
+    servo_one.init(0x40,0,glm::vec2(ofGetWidth()/2,ofGetHeight()/2),servoSize,0);
     
     gui.setup();
     

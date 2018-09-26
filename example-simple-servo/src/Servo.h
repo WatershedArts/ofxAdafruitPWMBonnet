@@ -33,20 +33,21 @@ class Servo
          Init Constructor
          */
         //--------------------------------------------------------------
-        Servo(u_int16_t ctrlAddress, u_int16_t pinNo, glm::vec2 pos,float initAngle)
+        Servo(u_int16_t ctrlAddress, u_int16_t pinNo, glm::vec2 pos, glm::vec2 size, float initAngle)
         {
-            init(ctrlAddress, pinNo, pos, initAngle);
+            init(ctrlAddress, pinNo, pos, size, initAngle);
         }
     
         /**
          Initialize
          */
         //--------------------------------------------------------------
-        void init(u_int16_t ctrlAddress, u_int16_t pinNo, glm::vec2 pos,float initAngle)
+        void init(u_int16_t ctrlAddress, u_int16_t pinNo, glm::vec2 pos, glm::vec2 size, float initAngle)
         {
             this->ctrlAddress = ctrlAddress;
             this->pinNo = pinNo;
             this->pos = pos;
+            this->size = size;
             this->currentAngle = initAngle;
         }
     
@@ -72,10 +73,31 @@ class Servo
             return pinNo;
         }
     
+        /**
+         Returns the Size of the Servo
+
+         @return size
+         */
+        //--------------------------------------------------------------
+        glm::vec2 getSize()
+        {
+            return size;
+        }
+    
+        /**
+         Returns the Position of the Servo
+         
+         @return pos
+         */
+        //--------------------------------------------------------------
+        glm::vec2 getPosition()
+        {
+            return pos;
+        }
     
         /**
          Set the New Angle
-
+         
          @param angle angle
          */
         //--------------------------------------------------------------
@@ -90,17 +112,15 @@ class Servo
         //--------------------------------------------------------------
         void drawServo()
         {
-            int width = 50;
-            int height = 100;
             ofPushMatrix();
             {
                 ofTranslate(pos.x,pos.y);
                 ofPushStyle();
                 ofNoFill();
                 ofSetColor(255);
-                ofDrawRectangle(-(width/2),-(height/2),width,height);
+                ofDrawRectangle(-(size.x/2),-(size.y/2),size.x,size.y);
                 ofPushMatrix();
-                ofTranslate(0,-(height/3));
+                ofTranslate(0,-(size.y/3));
                 {
                     ofPushMatrix();
                     {
@@ -108,9 +128,9 @@ class Servo
                         ofRotateZDeg(currentAngle);
                         ofPushMatrix();
                         {
-                            ofDrawCircle(0,0,35);
+                            ofDrawCircle(0,0,(size.y/3));
                             ofDrawCircle(0,0,5);
-                            ofDrawLine(0,0,0,-35);
+                            ofDrawLine(0,0,0,-(size.y/3));
                         }
                         ofPopMatrix();
                     }
@@ -120,6 +140,8 @@ class Servo
                 ofPopStyle();
             }
             ofPopMatrix();
+            ofSetColor(255,255,0);
+            ofDrawBitmapString("Servo " + ofToString(int(pinNo)),pos.x-(size.x/2),pos.y+size.y/2+15);
         }
     
     private:
@@ -127,6 +149,7 @@ class Servo
         u_int16_t ctrlAddress;
         u_int16_t pinNo;
         glm::vec2 pos;
+        glm::vec2 size;
         float currentAngle;
 };
 
