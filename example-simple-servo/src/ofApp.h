@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "ofxAdafruitPWMBonnet.h"
 
-//#define USE_IMGUI
+#define USE_IMGUI
 
 #ifdef USE_IMGUI
 #include "ofxImGui.h"
