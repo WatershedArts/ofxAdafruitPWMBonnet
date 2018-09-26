@@ -167,13 +167,13 @@ void ofxAdafruitPWMBonnet::setPWM(u_int16_t num, u_int16_t on, u_int16_t off)
 //-------------------------------------------------------------
 void ofxAdafruitPWMBonnet::setAngle(u_int16_t num, int angle)
 {
-    float pulse = 0;
-    float zeroPulse = (pwmMinPulse + pwmMaxPulse) / 2;
-    float pulseWidth = zeroPulse - pwmMinPulse;
-    pulse = zeroPulse + (pulseWidth * angle / pwmLimit);
-    angles.at(num) = angle;
-    
-    setPWM(num,0,int(pulse));
+        float pulse = 0;
+        float zeroPulse = (pwmMinPulse + pwmMaxPulse) / 2;
+        float pulseWidth = zeroPulse - pwmMinPulse;
+        pulse = zeroPulse + (pulseWidth * angle / pwmLimit);
+        angles.at(num) = angle;
+        
+        setPWM(num,0,int(pulse));
 }
 
 //--------------------------------------------------------
@@ -186,6 +186,12 @@ u_int16_t ofxAdafruitPWMBonnet::getI2CAddress()
 string ofxAdafruitPWMBonnet::getName()
 {
     return name;
+}
+
+//--------------------------------------------------------
+bool ofxAdafruitPWMBonnet::isMasterControlEnabled()
+{
+    return bMasterControl.get();
 }
 
 //--------------------------------------------------------

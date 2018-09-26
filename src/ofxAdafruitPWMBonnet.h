@@ -136,6 +136,15 @@ class ofxAdafruitPWMBonnet {
          */
         //--------------------------------------------------------
         string getName();
+    
+        /**
+         Is the Master Control Enabled
+
+         @return bMasterControl
+         */
+        //--------------------------------------------------------
+        bool isMasterControlEnabled();
+
 
         // Gui Parameters
         ofParameterGroup parameters;
