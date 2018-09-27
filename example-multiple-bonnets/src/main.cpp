@@ -12,7 +12,7 @@ int main()
     settings.setGLVersion(3,2);
 #endif
     
-    settings.setSize(380,750);
+    settings.setSize(800,750);
     settings.windowMode = OF_WINDOW;
     
     ofCreateWindow(settings);
