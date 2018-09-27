@@ -1,6 +1,5 @@
 //
 //  Servo.h
-//  example-simple-servo
 //
 //  Created by David Haylock on 26/09/2018.
 //
@@ -60,6 +59,17 @@ public:
     int getCurrentAngle()
     {
         return currentAngle;
+    }
+    
+    /**
+     Get the Connected Pin Number
+     
+     @return pin no
+     */
+    //--------------------------------------------------------------
+    u_int16_t getCtrlAddress()
+    {
+        return ctrlAddress;
     }
     
     /**
@@ -141,7 +151,10 @@ public:
         }
         ofPopMatrix();
         ofSetColor(255,255,0);
-        ofDrawBitmapString("Servo " + ofToString(int(pinNo)),pos.x-(size.x/2),pos.y+size.y/2+15);
+        stringstream ss;
+        ss << "Servo " << pinNo << endl;
+        ss << "CTRL " << ctrlAddress << endl;
+        ofDrawBitmapString(ss.str(),pos.x-(size.x/2)-7,pos.y+size.y/2+15);
     }
     
 private:

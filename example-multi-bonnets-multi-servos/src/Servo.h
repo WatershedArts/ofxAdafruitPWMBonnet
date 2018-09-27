@@ -1,6 +1,5 @@
 //
 //  Servo.h
-//  example-multi-bonnet-multi-servo
 //
 //  Created by David Haylock on 26/09/2018.
 //
